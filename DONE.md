@@ -1,0 +1,27 @@
+# DONE
+
+- 2026-06-24: Rewrote `README.md` entirely in English and updated it for the current four experiment modes, Kafka/gzip sources, CLI, output files, profiling workflow, analysis scripts, and repository structure.
+- 2026-05-20: Added standard throughput metrics output without changing the existing output-rate `throughput_metrics_*.csv` logic or schema.
+- 2026-05-20: Connected standard throughput probes at source ingestion and after the single/three-phase filter stage, writing to `standard_throughput_metrics_{runId}_{mode}_{timeSetting}.csv` in the existing output directory.
+- 2026-05-20: Updated experiment plotting scripts to display method abbreviations (`SW`, `DWW`, `ALW`, `CBW`) and use the baseline1/baseline2/baseline3/proposed visual order.
+- 2026-05-20: Refactored `experiments/mechanism_resource_overview.py` to compare all four methods for total windows, total outputs, and CPU runtime curves.
+- 2026-05-20: Added visible CSV scan progress logging to `experiments/mechanism_resource_overview.py` for long `output_counts` reads.
+- 2026-05-20: Added SW/DWW/ALW deterministic latency reference lines to `experiments/window_finalization_latency_distribution.py` plots.
+- 2026-05-20: Updated `experiments/window_finalization_latency_distribution.py` to show CBW as the histogram, SW/DWW as zero-latency point markers, and ALW as a fixed-latency band in one combined legend.
+- 2026-05-20: Moved the finalization latency summary box to the left side of the histogram so it no longer covers the 465-minute distribution area.
+- 2026-05-20: Changed SW/DWW finalization latency markers from points to zero-latency vertical bands and placed the summary box beside the legend.
+- 2026-05-20: Limited the SW/DWW zero-latency bars to one third of the histogram Y-axis height for clearer comparison.
+- 2026-05-20: Converted the finalization latency histogram to a broken Y-axis so CBW remains visible at 0-25% while SW/DWW/ALW are shown as 100% deterministic latency bars.
+- 2026-05-20: Moved finalization latency legend and summary outside the plot and rendered SW/DWW/ALW bars across both broken-axis panels from 0% to 100%.
+- 2026-05-20: Rendered SW/DWW/ALW finalization latency bars as continuous full-height figure-level bands across the broken Y-axis gap.
+- 2026-05-20: Added horizontal padding to the finalization latency histogram so zero-latency and 465-minute bands no longer touch the plot frame.
+- 2026-05-20: Rendered P50/P95/P99 reference lines as continuous full-height figure-level dashed lines across the broken Y-axis gap.
+- 2026-05-21: Added `experiments/standard_throughput_analyzer.py` for run5 standard throughput summary, runtime, distribution, and post-filter/source ratio analysis.
+- 2026-05-25: Extended `experiments/standard_throughput_analyzer.py` to compare all four run5 standard throughput methods and generated summary CSVs plus comparison plots under `analysis/standard_throughput_run5_compare/`.
+- 2026-05-25: Updated the run5 standard throughput distribution plot to color each method's box, whiskers, outliers, and mean marker consistently.
+- 2026-06-02: Fixed run8 finalization latency distribution plots to derive ALW from allowedLatenessMs and cap SW/DWW/ALW bands at the 100% y-axis tick.
+- 2026-06-05: Updated `experiments/window_behavior_analyzer.py` bar charts to use the same SW/DWW/ALW/CBW colors as the memory runtime plots.
+- 2026-06-06: Fixed run9 finalization latency distribution plots so DWW defaults to the watermark-delay/allowed-lateness reference instead of 0 minutes, and regenerated the run9 latency figures.
+- 2026-06-06: Added a visual offset for overlapping DWW/ALW finalization latency reference bands and regenerated the run9 latency distribution figures.
+- 2026-06-06: Changed `experiments/multi_resource_runtime_compare.py` to use P95 memory per runtime bin by default.
+- 2026-06-07: Compared DWW 465m and 726m RSS memory runtime profiles and generated mean/P95/delta plots under `analysis/dww_memory_delay_comparison_run10/`.

@@ -1,0 +1,13 @@
+# Maven
+**/target/
+*.log
+*.class
+
+# VSCode / IntelliJ
+.vscode/
+.idea/
+*.imltarget/
+
+outputs/
+collect_output/
+outputs1/

@@ -1,0 +1,11 @@
+.idea/
+.vscode/
+output/results_baseline_50h
+output/results_proposed_50h
+output/results_proposed_8h
+output/output
+.DS_Store
+**/.DS_Store
+analysis/
+target/
+**/target/
